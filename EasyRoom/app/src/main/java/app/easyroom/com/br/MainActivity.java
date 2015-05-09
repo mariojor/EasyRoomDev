@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 
 

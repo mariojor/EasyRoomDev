@@ -83,6 +83,7 @@
         <EditText
             android:id="@+id/edt_senha_usuario"
             android:inputType="textPassword"
+            android:maxLength="8"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -105,6 +106,7 @@
         <EditText
             android:id="@+id/edt_fone_usuario"
             android:inputType="phone"
+            android:maxLength="11"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -119,7 +121,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bt_entrar"
             android:text="CADASTRAR"
-            android:onClick="CadastraUsuario"
+            android:onClick="cadastrarUsuario"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold" />

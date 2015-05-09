@@ -9,19 +9,25 @@ public class Usuario implements Serializable{
 
     private int Id;
     private String login;
-    private int senha;
+    private String senha;
     private String email;
     private String fone;
 
 
-    public Usuario(int id, String login, int senha) {
+    public Usuario(String email, String senha) {
+        super();
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Usuario(int id, String login, String senha) {
         super();
 
         Id = id;
         this.login = login;
         this.senha = senha;
     }
-    public Usuario(String login, int senha,String email,String fone) {
+    public Usuario(String login, String senha,String email,String fone) {
         super();
 
         this.login = login;
@@ -51,13 +57,11 @@ public class Usuario implements Serializable{
         this.login = login;
     }
 
-
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 

@@ -15,7 +15,7 @@ import app.easyroom.com.br.Model.Oferta;
  * Created by Saulo on 11/04/2015.
  */
 public class AnuncioRest {
-    private static final String URL_WS = "http://192.168.43.84:8080/ExConsumirWS/cliente/";
+    private static final String URL_WS = "http://192.168.0.106:8080/ExConsumirWS/cliente/";
     public String CadastrarAnuncio(Oferta anuncio) throws Exception{
         Gson gson = new Gson();
         String anuncioJSON = gson.toJson(anuncio);
