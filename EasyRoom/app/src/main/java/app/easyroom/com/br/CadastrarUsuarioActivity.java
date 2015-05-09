@@ -1,6 +1,5 @@
 package app.easyroom.com.br;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -31,6 +30,8 @@ public class CadastrarUsuarioActivity extends ActionBarActivity {
         fone = (EditText) findViewById(R.id.edt_fone_usuario);
 
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -53,24 +54,18 @@ public class CadastrarUsuarioActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void cadastrarUsuario(View v){
+    public void CadastraUsuario(View v){
 
-        Usuario use = new Usuario(login.getText().toString(),senha.getText().toString() ,email.getText().toString(),fone.getText().toString());
+        String senha3 = senha.getText().toString();
+        int senhaInt = new  Integer(senha3);
+
+        Usuario use = new Usuario(login.getText().toString().toString(),senhaInt ,email.getText().toString(),fone.getText().toString());
 
         UsuarioREST cliREST = new UsuarioREST();
 
         try {
-            String resposta = cliREST.cadastrarUsuario(use);
-
-            if(resposta.equals("false")){
-                Toast.makeText(this, "Usuario já existe!", Toast.LENGTH_LONG).show();
-            }else{
-                Toast.makeText(this, "Usuario cadastrado com sucesso!", Toast.LENGTH_LONG).show();
-                Intent telaCadastro = new Intent(CadastrarUsuarioActivity.this, LoginActivity.class);
-                startActivity(telaCadastro);
-            }
-
-
+            String resposta = cliREST.inserirCliente(use);
+            Toast.makeText(this, "Usuario Cadastrado Com Sucesso", LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(this, "Erro ", LENGTH_SHORT).show();
             e.printStackTrace();

@@ -39,12 +39,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email:"
+            android:text="Login:"
             android:textColor="#fff"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/telaLoginCampoEmail"
+            android:id="@+id/telaLoginCampoLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
 
@@ -59,16 +59,15 @@
             android:id="@+id/telaLogincampoSenha"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
+
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_entrar"
             android:text="ENTRAR"
-            android:id="@+id/telaLoginBtnEntrar"
-            android:onClick="validarLogin"
-            android:layout_below="@+id/edt_valor_quarto"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="57dp" />
+            android:textColor="#fff"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,11 +85,5 @@
 
         </LinearLayout>
 
-       </LinearLayout>
-
-
+    </LinearLayout>
 </LinearLayout>
-
-
-
-
