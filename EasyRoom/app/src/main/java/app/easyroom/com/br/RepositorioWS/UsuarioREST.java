@@ -9,7 +9,7 @@ import app.easyroom.com.br.Model.Usuario;
  * Created by Saulo on 22/03/2015.
  */
 public class UsuarioREST {
-    private static final String URL_WS = "http://192.168.1.102:8080/ExConsumirWS/cliente/";
+    private static final String URL_WS = "http://192.168.0.106:8080/ExConsumirWS/cliente/";
 
       public String cadastrarUsuario(Usuario usuario) throws Exception {
 
