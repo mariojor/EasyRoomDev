@@ -19,22 +19,34 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class LoginActivity extends ActionBarActivity {
 
-    EditText email;
-    EditText senha;
+    EditText etEmail;
+    EditText etSenha;
     Button btnEntrar;
-    TextView btnCadastro;
+    TextView tvCadastro;
+    TextView tvEsqueciSenha;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       email = (EditText) findViewById(R.id.telaLoginCampoEmail);
-       senha = (EditText) findViewById(R.id.telaLogincampoSenha);
-       btnEntrar = (Button) findViewById(R.id.telaLoginBtnEntrar);
-       btnCadastro = (TextView) findViewById(R.id.telaLoginBtnCadastro);
+        etEmail = (EditText) findViewById(R.id.telaLoginCampoEmail);
+        etSenha = (EditText) findViewById(R.id.telaLogincampoSenha);
+        btnEntrar = (Button) findViewById(R.id.telaLoginBtnEntrar);
+        tvCadastro = (TextView) findViewById(R.id.telaLoginBtnCadastro);
+        tvEsqueciSenha = (TextView) findViewById(R.id.telaLoginBtnEsqueciSenha);
 
-        btnCadastro.setOnClickListener(new View.OnClickListener() {
+
+        tvEsqueciSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent esqueciSenha = new Intent(LoginActivity.this, EsqueciMinhaSenhaActivity.class);
+                startActivity(esqueciSenha);
+            }
+        });
+
+        tvCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent telaCadastro = new Intent(LoginActivity.this, CadastrarUsuarioActivity.class);
@@ -67,7 +79,7 @@ public class LoginActivity extends ActionBarActivity {
 
     public void validarLogin(View v){
 
-        Usuario use = new Usuario(email.getText().toString(),senha.getText().toString());
+        Usuario use = new Usuario(etEmail.getText().toString(),etSenha.getText().toString());
 
         UsuarioREST cliREST = new UsuarioREST();
 
@@ -75,8 +87,8 @@ public class LoginActivity extends ActionBarActivity {
             String resposta = cliREST.validarLogin(use);
 
             if(resposta.equals("true")){
-                Intent telaCadastro = new Intent(LoginActivity.this, VerQuartoActivity.class);
-                startActivity(telaCadastro);
+                Intent verQuarto = new Intent(LoginActivity.this, VerQuartoActivity.class);
+                startActivity(verQuarto);
             }else{
                 Toast.makeText(this, "Login ou senha imcompativeis!!!", LENGTH_SHORT).show();
                 Intent telaCadastro = new Intent(LoginActivity.this, CadastrarUsuarioActivity.class);
@@ -89,6 +101,5 @@ public class LoginActivity extends ActionBarActivity {
             //   gerarToast(e.getMessage());
 
         }
-
     }
-}
+   }

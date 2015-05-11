@@ -10,23 +10,38 @@ public class Oferta implements Serializable {
     private int Id;
     private String descricao;
     private String titulo;
-    private double valaor;
-    public Oferta( String descricao, String titulo, double valaor) {
-        super();
+    private String telefone;
+    private String endereco;
+    private double valor;
 
-        this.descricao = descricao;
-        this.titulo = titulo;
-        this.valaor = valaor;
-    }
-    public Oferta(int Id, String descricao, String titulo, double valaor) {
+
+    public Oferta(String descricao, String titulo,String telefone,String endereco, double valor) {
         super();
-         this.Id = Id;
         this.descricao = descricao;
         this.titulo = titulo;
-        this.valaor = valaor;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.valor = valor;
+    }
+    public Oferta(int Id, String descricao, String titulo,String telefone, String endereco, double valor) {
+        super();
+        this.Id = Id;
+        this.descricao = descricao;
+        this.titulo = titulo;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.valor = valor;
     }
 
     public Oferta(){}
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 
     public int getId() {
         return Id;
@@ -52,11 +67,19 @@ public class Oferta implements Serializable {
         this.titulo = titulo;
     }
 
-    public double getValaor() {
-        return valaor;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setValaor(double valaor) {
-        this.valaor = valaor;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }

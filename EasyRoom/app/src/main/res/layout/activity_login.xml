@@ -57,23 +57,50 @@
 
         <EditText
             android:id="@+id/telaLogincampoSenha"
+            android:inputType="textPassword"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:padding="18dp">
+
+            <TextView
+                android:id="@+id/telaLoginBtnEsqueciSenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="recuperarSenha"
+                android:text="Esqueci Minha Senha"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:textColor="#fff"/>
+
+           </LinearLayout>
+
+
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ENTRAR"
             android:id="@+id/telaLoginBtnEntrar"
             android:onClick="validarLogin"
+            android:textColor="#fff"
+            android:background="@drawable/bt_entrar"
             android:layout_below="@+id/edt_valor_quarto"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="57dp" />
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:gravity="center">
 
             <TextView

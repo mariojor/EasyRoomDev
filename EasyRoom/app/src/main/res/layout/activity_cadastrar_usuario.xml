@@ -20,30 +20,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#fff"/>
-
-        <EditText
-            android:id="@+id/edt_nome_usuario"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
+       <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -61,6 +38,7 @@
         <EditText
             android:id="@+id/edt_email_usuario"
             android:inputType="textEmailAddress"
+            android:maxLength="50"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -83,7 +61,7 @@
         <EditText
             android:id="@+id/edt_senha_usuario"
             android:inputType="textPassword"
-            android:maxLength="8"
+            android:maxLength="15"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -98,18 +76,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefone:"
+            android:text="Confirmar Senha:"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="#fff"/>
 
         <EditText
-            android:id="@+id/edt_fone_usuario"
-            android:inputType="phone"
-            android:maxLength="11"
+            android:id="@+id/edt_confirmar_senha_usuario"
+            android:inputType="textPassword"
+            android:maxLength="15"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -117,13 +96,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bt_entrar"
             android:text="CADASTRAR"
             android:onClick="cadastrarUsuario"
             android:textColor="#fff"
             android:textSize="20sp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:textStyle="bold" />
     </LinearLayout>
 

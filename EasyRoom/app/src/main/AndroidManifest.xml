@@ -10,14 +10,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +27,8 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.easyroom.com.br.MainActivity" />
@@ -34,7 +36,8 @@
         <activity
             android:name=".CadastrarUsuarioActivity"
             android:label="@string/title_activity_cadastrar_usuario"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.easyroom.com.br.MainActivity" />
@@ -42,14 +45,21 @@
         <activity
             android:name=".CadastrarQuartoActivity"
             android:label="@string/title_activity_cadastrar_quarto"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.easyroom.com.br.MainActivity" />
         </activity>
         <activity
             android:name=".VerQuartoActivity"
-            android:label="@string/title_activity_ver_quarto" >
+            android:label="@string/title_activity_ver_quarto"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".EsqueciMinhaSenhaActivity"
+            android:label="@string/title_activity_esqueci_minha_senha"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

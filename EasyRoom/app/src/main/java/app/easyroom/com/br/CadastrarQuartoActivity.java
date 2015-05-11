@@ -1,31 +1,89 @@
 package app.easyroom.com.br;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
+
 import app.easyroom.com.br.Model.Oferta;
 import app.easyroom.com.br.RepositorioWS.AnuncioRest;
+import app.easyroom.com.br.Util.Util;
 
 
 public class CadastrarQuartoActivity extends ActionBarActivity {
-    TextView descriacao;
-    TextView titulo;
-    TextView valor;
+    EditText descriacao;
+    EditText titulo;
+    EditText telefone;
+    EditText endereco;
+    EditText valor;
     Button cadastrarQuarto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_quarto);
-    }
 
+        valor = (EditText) findViewById(R.id.edt_valor_quarto);
+        valor.setInputType(InputType.TYPE_CLASS_NUMBER);
+        valor.addTextChangedListener(new TextWatcher() {
 
+            private boolean isUpdating = false;
+            // Pega a formatacao do sistema, se for brasil R$ se EUA US$
+            private NumberFormat nf = NumberFormat.getCurrencyInstance();
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int after) {
+                // Evita que o método seja executado varias vezes.
+                // Se tirar ele entre em loop
+                if (isUpdating) {
+                    isUpdating = false;
+                    return;
+                }
+                isUpdating = true;
+                String str = s.toString();
+                // Verifica se já existe a máscara no texto.
+                boolean hasMask = ((str.indexOf("R$") > -1 || str.indexOf("$") > -1) &&
+                        (str.indexOf(".") > -1 || str.indexOf(",") > -1));
+                // Verificamos se existe máscara
+                if (hasMask) {
+                    // Retiramos a máscara.
+                    str = str.replaceAll("[R$]", "").replaceAll("[,]", "")
+                            .replaceAll("[.]", "");
+                }
+
+                try {
+                    // Transformamos o número que está escrito no EditText em
+                    // monetário.
+                    str = nf.format(Double.parseDouble(str) / 100);
+                    valor.setText(str);
+                    valor.setSelection(valor.getText().length());
+                } catch (NumberFormatException e) {
+                    s = "";
+                }
+            } @Override
+              public void beforeTextChanged(CharSequence s, int start, int count,
+                                            int after) {
+                // Não utilizamos
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Não utilizamos
+            }
+        });
+}
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -50,14 +108,21 @@ public class CadastrarQuartoActivity extends ActionBarActivity {
 
       public void CadastrarOferta(View v){
           try {
-              titulo = (TextView) findViewById(R.id.edt_titulo_quarto);
-              descriacao = (TextView) findViewById(R.id.edt_descricao_quarto);
-              valor = (TextView) findViewById(R.id.edt_valor_quarto);
-              Double value = Double.parseDouble(valor.getText().toString());
+              titulo = (EditText) findViewById(R.id.edt_titulo_quarto);
+              descriacao = (EditText) findViewById(R.id.edt_descricao_quarto);
+              telefone = (EditText) findViewById(R.id.edt_telefone_quarto);
+              endereco = (EditText) findViewById(R.id.edt_endereco_quarto);
+
+              String valorSemCaracteres = Util.removerCaracteresDeNumeros(valor.getText().toString());
+
+              Double valorReal = Double.parseDouble(valorSemCaracteres);
               Oferta ofe = new Oferta();
+
               ofe.setDescricao(descriacao.getText().toString());
               ofe.setTitulo(titulo.getText().toString());
-              ofe.setValaor(value);
+              ofe.setTelefone(telefone.getText().toString());
+              ofe.setEndereco(endereco.getText().toString());
+              ofe.setValor(valorReal/100);
 
               AnuncioRest rest = new AnuncioRest();
               rest.CadastrarAnuncio(ofe);

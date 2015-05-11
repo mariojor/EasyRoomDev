@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">EasyRoom</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_cadastrar_usuario">CadastrarUsuarioActivity</string>
-    <string name="title_activity_cadastrar_quarto">CadastrarQuartoActivity</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_cadastrar_usuario">Cadastrar Usuario</string>
+    <string name="title_activity_cadastrar_quarto">Cadastrar Quarto</string>
     <string name="login">Login</string>
     <string name="entrar">Entrar</string>
     <string name="verquarto">Ver Quarto</string>
@@ -23,10 +23,12 @@
     <string name="senha">Senha</string>
     <string name="repsenha">RepSenha</string>
     <string name="cadastroDeUsuario">Cadastro de Usuário</string>
-    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_splash">Splash</string>
     <string name="lname">lname</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_ver_quarto">VerQuartoActivity</string>
+    <string name="title_activity_ver_quarto">Ver Quartos</string>
+    <string name="title_activity_esqueci_minha_senha">Esqueci minha senha </string>
+    <string name="EsqueciMinhaSenha">Esqueci Minha Senha</string>
 
 
 </resources>

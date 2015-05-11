@@ -11,13 +11,14 @@ import java.util.List;
 
 import app.easyroom.com.br.Model.Oferta;
 import app.easyroom.com.br.R;
+import app.easyroom.com.br.Util.Moeda;
 
 /**
  * Created by Saulo on 18/04/2015.
  */
 public class OfertaAdapter extends BaseAdapter{
-List<Oferta> ofetas;
-Context ctx;
+     List<Oferta> ofetas;
+     Context ctx;
 
     public OfertaAdapter(Context ctx, List<Oferta> ofetas){
         this.ctx = ctx;
@@ -46,13 +47,17 @@ Context ctx;
         View linha = LayoutInflater.from(ctx).inflate(R.layout.lista_anuncio,null);
         TextView titulo =(TextView) linha.findViewById(R.id.editTitulo);
         TextView descricao =(TextView) linha.findViewById(R.id.editDescricao);
+        TextView telefone = (TextView) linha.findViewById(R.id.editTelefone);
+        TextView endereco = (TextView) linha.findViewById(R.id.editEndereco);
         TextView valor = (TextView) linha.findViewById(R.id.editValor);
 
-       String teste = String.valueOf(anuncio.getValaor());
+        String valorEmString = String.valueOf(new Moeda(anuncio.getValor()));
 
-        valor.setText(teste);
         titulo.setText(anuncio.getTitulo());
         descricao.setText(anuncio.getDescricao());
+        telefone.setText(anuncio.getTelefone());
+        endereco.setText(anuncio.getEndereco());
+        valor.setText(valorEmString);
 
         return linha;
     }

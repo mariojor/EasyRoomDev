@@ -34,10 +34,9 @@ android:orientation="vertical"
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="30dp"
+    android:layout_height="wrap_content"
     android:gravity="top"
     android:padding="10dp"
-    android:layout_weight="0.78"
     android:id="@+id/teste"
     android:orientation="vertical">
 
@@ -49,12 +48,14 @@ android:orientation="vertical"
         android:layout_below="@+id/textView_titulo_quarto"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:textColor="#fff"
         android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edt_titulo_quarto"
+        android:maxLength="50"
         android:layout_below="@+id/textView_titulo_cQuarto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -66,22 +67,67 @@ android:orientation="vertical"
         android:id="@+id/textView_descricao_cQuarto"
         android:layout_below="@+id/edt_titulo_quarto"
         android:layout_centerHorizontal="true"
+        android:textColor="#fff"
         android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edt_descricao_quarto"
+        android:maxLength="250"
         android:layout_below="@+id/textView_descricao_cQuarto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone"
+        android:textColor="#fff"
+        android:id="@+id/textView_Telefone_cQuarto"
+        android:layout_below="@+id/edt_descricao_quarto"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLength="11"
+        android:id="@+id/edt_telefone_quarto"
+        android:layout_below="@+id/textView_Telefone_cQuarto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="endereco"
+        android:textColor="#fff"
+        android:id="@+id/textView_endereco_cQuarto"
+        android:layout_below="@+id/edt_telefone_quarto"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_endereco_quarto"
+        android:maxLength="200"
+        android:layout_below="@+id/textView_endereco_cQuarto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="valor"
+        android:textColor="#fff"
         android:id="@+id/textView_Valor_cQuarto"
-        android:layout_below="@+id/edt_descricao_quarto"
+        android:layout_below="@+id/edt_endereco_quarto"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal" />
 
@@ -95,18 +141,18 @@ android:orientation="vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-
-</LinearLayout>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="cadastrar"
+        android:background="@drawable/bt_entrar"
+        android:textColor="#fff"
         android:id="@+id/btn_cadastrar_oferta"
         android:onClick="CadastrarOferta"
         android:layout_below="@+id/edt_valor_quarto"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="57dp" />
+        android:textStyle="bold"/>
 
+</LinearLayout>
 </LinearLayout>
