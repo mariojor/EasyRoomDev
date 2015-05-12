@@ -56,7 +56,7 @@
             android:id="@+id/telaEsqueciSenhaBtnEnviar"
             android:background="@drawable/bt_entrar"
             android:textColor="#fff"
-            android:onClick="validarLogin"
+            android:onClick="esqueciMinhaSenha"
             android:layout_below="@+id/edt_valor_quarto"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"

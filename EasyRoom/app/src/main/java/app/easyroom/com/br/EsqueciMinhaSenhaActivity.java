@@ -19,7 +19,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 public class EsqueciMinhaSenhaActivity extends ActionBarActivity {
 
     Button btnRecuperarSenhaEmail;
-    EditText edEmailRecuperarSenha;
+    EditText edtEmailRecuperarSenha;
 
 
     @Override
@@ -27,7 +27,7 @@ public class EsqueciMinhaSenhaActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_esqueci_minha_senha);
 
-        edEmailRecuperarSenha = (EditText) findViewById(R.id.edEmailParaRecuperarSenha);
+        edtEmailRecuperarSenha = (EditText) findViewById(R.id.edEmailParaRecuperarSenha);
         btnRecuperarSenhaEmail = (Button) findViewById(R.id.telaEsqueciSenhaBtnEnviar);
 
            }
@@ -55,24 +55,30 @@ public class EsqueciMinhaSenhaActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void recuperarSenha(View v){
+    public void esqueciMinhaSenha(View v){
         Usuario use = null;
         UsuarioREST cliREST = new UsuarioREST();
         String resposta = null;
         try {
 
+            if(edtEmailRecuperarSenha.getText().toString().equals("")
+               || edtEmailRecuperarSenha.getText().toString() == null
+               || edtEmailRecuperarSenha.getText().toString().isEmpty()){
+
+            }
             if (resposta.equals("false")) {
-                Toast.makeText(this, "Usuario já existe!", Toast.LENGTH_LONG).show();
-            }else if(resposta.equals("emailInvalido")){
-                Toast.makeText(this, "E-mail invalido!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Email não existe!", Toast.LENGTH_LONG).show();
             }else {
-                Toast.makeText(this, "Usuario cadastrado com sucesso!", Toast.LENGTH_LONG).show();
-                Intent telaCadastro = new Intent(EsqueciMinhaSenhaActivity.this, LoginActivity.class);
-                startActivity(telaCadastro);
+
+                use = new Usuario(edtEmailRecuperarSenha.getText().toString());
+                resposta = cliREST.esqueciMinhaSenha(use);
+                Toast.makeText(this, "Uma nova senha foi enviada para seu email.", Toast.LENGTH_LONG).show();
+                Intent telaLogin = new Intent(EsqueciMinhaSenhaActivity.this, LoginActivity.class);
+                startActivity(telaLogin);
             }
 
         }catch(NullPointerException e){
-            Toast.makeText(this, "Por favor, todos os campos devem ser preenchidos.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Por favor, campo email deve ser preenchido.", Toast.LENGTH_LONG).show();
 
         }catch (Exception e) {
             Toast.makeText(this, "Erro ", LENGTH_SHORT).show();
